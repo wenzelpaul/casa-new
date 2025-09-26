@@ -1,0 +1,8 @@
+{
+  "pictures": [
+    { "src": "/assets/images/pictures/bild1.jpg", "alt": "Sea view from the terrace", "caption": "Sea view from the terrace" },
+    { "src": "/assets/images/pictures/bild2.jpg", "alt": "Living room with daylight", "caption": "Living room with daylight" },
+    { "src": "/assets/images/pictures/bild3.jpg", "alt": "Bedroom with balcony", "caption": "Bedroom with balcony" },
+    { "src": "/assets/images/pictures/blick.jpg", "alt": "Kitchen and dining area", "caption": "Kitchen and dining area" }
+  ]
+}

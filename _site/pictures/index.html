@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ title or "Casa Orizzonte Blu" }}</title>
+  <title>Pictures</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ description or 'Casa Orizzonte Blu – seaside stay' }}">
+  <meta name="description" content="Photo gallery">
   <link rel="stylesheet" href="/assets/css/gallery.css">
   <style>
     :root { --fg:#1a1a1a; --bg:#ffffff; --muted:#666; --link:#0a66c2; }
@@ -29,7 +29,29 @@
     </nav>
   </header>
   <main>
-    {{ content | safe }}
+    
+<h2>Pictures</h2>
+
+<div class="gallery" data-gallery>
+  
+    <a href="/assets/images/pictures/bild1.jpg" class="thumb" data-index="0" data-caption="Sea view from the terrace">
+      <img src="/assets/images/pictures/bild1.jpg" alt="Sea view from the terrace">
+    </a>
+  
+    <a href="/assets/images/pictures/bild2.jpg" class="thumb" data-index="1" data-caption="Living room with daylight">
+      <img src="/assets/images/pictures/bild2.jpg" alt="Living room with daylight">
+    </a>
+  
+    <a href="/assets/images/pictures/bild3.jpg" class="thumb" data-index="2" data-caption="Bedroom with balcony">
+      <img src="/assets/images/pictures/bild3.jpg" alt="Bedroom with balcony">
+    </a>
+  
+    <a href="/assets/images/pictures/blick.jpg" class="thumb" data-index="3" data-caption="Kitchen and dining area">
+      <img src="/assets/images/pictures/blick.jpg" alt="Kitchen and dining area">
+    </a>
+  
+</div>
+
   </main>
 
   <!-- Lightbox overlay (hidden by default) -->

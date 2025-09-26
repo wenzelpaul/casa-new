@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: Pictures
+description: Photo gallery
+permalink: /pictures/index.html
+---
+
+<h2>Pictures</h2>
+
+<div class="gallery" data-gallery>
+  {% for item in gallery.pictures %}
+    <a href="{{ item.src }}" class="thumb" data-index="{{ loop.index0 }}" data-caption="{{ item.caption | escape }}">
+      <img src="{{ item.src }}" alt="{{ item.alt }}">
+    </a>
+  {% endfor %}
+</div>
