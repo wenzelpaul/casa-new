@@ -1,0 +1,5 @@
+:9090 {
+  root * ./_site
+  encode zstd gzip
+  file_server
+}

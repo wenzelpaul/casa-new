@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title or "Casa Orizzonte Blu" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description or 'Casa Orizzonte Blu – seaside stay' }}">
+  <style>
+    :root { --fg:#1a1a1a; --bg:#ffffff; --muted:#666; --link:#0a66c2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; color: var(--fg); background: var(--bg); line-height: 1.55; }
+    header, main, footer { max-width: 960px; margin: 0 auto; padding: 1rem; }
+    header { padding-top: 1.5rem; padding-bottom: 0.5rem; }
+    nav a { margin-right: 1rem; color: var(--link); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h1, h2, h3 { line-height: 1.2; }
+    footer { color: var(--muted); font-size: 0.9rem; border-top: 1px solid #eee; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Casa Orizzonte Blu</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer>
+    <p>&copy; {{ currentYear }} Casa Orizzonte Blu</p>
+  </footer>
+</body>
+</html>
