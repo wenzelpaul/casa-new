@@ -101,3 +101,67 @@
     e.preventDefault();
   }, { passive: false });
 })();
+
+// Mobile Navigation Scroll Indicator
+(function() {
+  const mobileNav = document.querySelector('.nav-mobile');
+  const desktopNav = document.querySelector('.nav-desktop');
+
+  if (!mobileNav || !desktopNav) return;
+
+  function updateScrollIndicator() {
+    const navWidth = mobileNav.clientWidth;
+    const contentWidth = mobileNav.scrollWidth;
+
+    if (contentWidth > navWidth) {
+      // Show scrollbar when content is wider than container
+      mobileNav.style.overflowX = 'auto';
+      mobileNav.classList.add('nav-scrollable');
+    } else {
+      // Hide scrollbar when all content fits
+      mobileNav.style.overflowX = 'hidden';
+      mobileNav.classList.remove('nav-scrollable');
+      mobileNav.scrollLeft = 0; // Reset to start position
+    }
+  }
+
+  function createScrollIndicator() {
+    // Show subtle scrollbar instead of dots
+    mobileNav.style.scrollbarWidth = 'thin';
+    mobileNav.style.scrollbarColor = 'var(--text-secondary) transparent';
+
+    // Add custom scrollbar styles
+    const style = document.createElement('style');
+    style.textContent = `
+      .nav-mobile::-webkit-scrollbar {
+        height: 3px;
+        display: block;
+      }
+      .nav-mobile::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .nav-mobile::-webkit-scrollbar-thumb {
+        background: var(--text-secondary);
+        border-radius: 2px;
+      }
+      .nav-mobile::-webkit-scrollbar-thumb:hover {
+        background: var(--text-primary);
+      }
+    `;
+    document.head.appendChild(style);
+
+    return { element: null, style }; // Return empty indicator since we're using scrollbar
+  }
+
+  // Remove auto-scroll functionality as requested
+
+  // Check on load and resize
+  updateScrollIndicator();
+  window.addEventListener('resize', updateScrollIndicator);
+
+  // Also check when navigation becomes visible (for responsive changes)
+  const observer = new MutationObserver(updateScrollIndicator);
+  observer.observe(desktopNav, { attributes: true, attributeFilter: ['style'] });
+
+  // No auto-scroll functionality needed
+})();
