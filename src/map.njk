@@ -10,6 +10,7 @@ permalink: /map/index.html
     <label for="startLocation">Startort:</label>
     <input type="text" id="startLocation" value="München" />
     <button id="getDirections">Route berechnen</button>
+    <button id="openStreetView">Street View öffnen</button>
 </div>
 
 <div id="routing-instructions"></div>
@@ -19,8 +20,13 @@ permalink: /map/index.html
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
+}
+#map {
+  height: 60vh;
+  width: 100%;
 }
 #routing-instructions {
     margin-top: 20px;
@@ -37,12 +43,8 @@ permalink: /map/index.html
 .leaflet-routing-container {
     display: none;
 }
-</style>
-
-<style>
-#map {
-  height: 400px;
-  width: 100%;
+main {
+    max-width: none;
 }
 </style>
 
@@ -106,5 +108,12 @@ document.getElementById('getDirections').addEventListener('click', function() {
             alert('Startort nicht gefunden. Bitte versuchen Sie eine andere Adresse.');
         }
     });
+});
+
+document.getElementById('openStreetView').addEventListener('click', function() {
+    var lat = casaCoords[0];
+    var lng = casaCoords[1];
+    var url = 'https://maps.google.com/maps?q=&layer=c&cbll=' + lat + ',' + lng;
+    window.open(url, '_blank');
 });
 </script>
