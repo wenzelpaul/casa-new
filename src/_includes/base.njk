@@ -56,6 +56,14 @@
       </div>
     </nav>
   </header>
+
+  <!-- Cover image hero section -->
+  {% if cover %}
+  <div class="cover-hero">
+    <img src="{{ cover }}" alt="{{ title or 'Cover Image' }}" loading="lazy">
+  </div>
+  {% endif %}
+
   <main>
     <div class="content-wrapper">
       {{ content | safe }}

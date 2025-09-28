@@ -3,6 +3,7 @@ layout: base.njk
 title: Über
 description: Über Casa Orizzonte Blu
 permalink: /about/index.html
+cover: /assets/images/pictures/blick.jpg
 ---
 ## Beschreibung der Umgebung
 
