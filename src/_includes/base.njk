@@ -5,22 +5,55 @@
   <title>{{ title or "Casa Orizzonte Blu" }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ description or 'Casa Orizzonte Blu – seaside stay' }}">
+  <!-- Font Awesome for mobile navigation icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/theme.css">
   <link rel="stylesheet" href="/assets/css/gallery.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/">Casa Orizzonte Blu</a>
-      <a href="/about/">Über</a>
-      <a href="/pictures/">Bilder</a>
-      <a href="/calendar/">Kalender</a>
-      <a href="/map/">Karte</a>
-      <a href="/contact/">Kontakt</a>
-      <a href="/impressum/">Impressum</a>
-      <a href="#" id="theme-toggle" class="theme-link" aria-label="Toggle dark mode">
-        <span class="theme-icon"></span>
-      </a>
+      <!-- Desktop Navigation -->
+      <div class="nav-desktop">
+        <a href="/">Casa Orizzonte Blu</a>
+        <a href="/about/">Über</a>
+        <a href="/pictures/">Bilder</a>
+        <a href="/calendar/">Kalender</a>
+        <a href="/map/">Karte</a>
+        <a href="/contact/">Kontakt</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="#" id="theme-toggle" class="theme-link" aria-label="Toggle dark mode">
+          <span class="theme-icon"></span>
+        </a>
+      </div>
+
+      <!-- Mobile Icon Navigation -->
+      <div class="nav-mobile">
+        <a href="/" aria-label="Home">
+          <i class="fas fa-home"></i>
+        </a>
+        <a href="/about/" aria-label="Über">
+          <i class="fas fa-globe"></i>
+        </a>
+        <a href="/pictures/" aria-label="Bilder">
+          <i class="fas fa-images"></i>
+        </a>
+        <a href="/calendar/" aria-label="Kalender">
+          <i class="fas fa-calendar-alt"></i>
+        </a>
+        <a href="/map/" aria-label="Karte">
+          <i class="fas fa-map-marker-alt"></i>
+        </a>
+        <a href="/contact/" aria-label="Kontakt">
+          <i class="fas fa-address-book"></i>
+        </a>
+        <a href="/impressum/" aria-label="Impressum">
+          <i class="fas fa-info-circle"></i>
+        </a>
+        <a href="#" id="theme-toggle-mobile" class="theme-link" aria-label="Toggle dark mode">
+          <span class="theme-icon"></span>
+        </a>
+      </div>
     </nav>
   </header>
   <main>

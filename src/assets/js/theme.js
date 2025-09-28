@@ -6,6 +6,7 @@
 class ThemeManager {
   constructor() {
     this.themeToggle = document.getElementById('theme-toggle');
+    this.themeToggleMobile = document.getElementById('theme-toggle-mobile');
     this.currentTheme = this.getStoredTheme();
     this.init();
   }
@@ -53,22 +54,30 @@ class ThemeManager {
     const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
     this.applyTheme(newTheme);
 
-    // Add a subtle animation feedback
-    if (this.themeToggle) {
-      this.themeToggle.style.transform = 'scale(0.95)';
+    // Add a subtle animation feedback to both toggle buttons
+    const buttons = [this.themeToggle, this.themeToggleMobile].filter(Boolean);
+    buttons.forEach(button => {
+      button.style.transform = 'scale(0.95)';
       setTimeout(() => {
-        this.themeToggle.style.transform = '';
+        button.style.transform = '';
       }, 150);
-    }
+    });
   }
 
   init() {
     // Apply stored theme on page load
     this.applyTheme(this.currentTheme);
 
-    // Add event listener to toggle link
+    // Add event listeners to both desktop and mobile toggle buttons
     if (this.themeToggle) {
       this.themeToggle.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent navigation
+        this.toggleTheme();
+      });
+    }
+
+    if (this.themeToggleMobile) {
+      this.themeToggleMobile.addEventListener('click', (e) => {
         e.preventDefault(); // Prevent navigation
         this.toggleTheme();
       });
