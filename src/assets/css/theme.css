@@ -38,6 +38,13 @@ body {
   line-height: 1.6;
 }
 
+/* Mobile body - minimal padding */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+}
+
 /* Smooth transitions for theme switching */
 :root, :root[data-theme="dark"] {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -144,6 +151,13 @@ main {
   padding: 0.5rem;
 }
 
+/* Mobile main - minimal padding */
+@media (max-width: 768px) {
+  main {
+    padding: 0.25rem; /* Reduced from 0.5rem */
+  }
+}
+
 /* Content wrapper - constrains text width for readability */
 .content-wrapper {
   max-width: 1600px;
@@ -200,7 +214,7 @@ main {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 0.5rem;
+    padding: 0.5rem 0rem; /* Even smaller horizontal padding */
     background: var(--background-secondary);
     overflow-x: hidden; /* Start hidden, JS will enable when needed */
     overflow-y: hidden;
@@ -298,11 +312,12 @@ main {
   header h1 {
     font-size: 1.5rem;
     text-align: center;
+    padding: 0 0.5rem; /* Reduced horizontal padding */
   }
 
   /* Mobile content styling */
   .content-wrapper {
-    padding: 1rem;
+    padding: 0.5rem; /* Reduced from 1rem */
   }
 
   .content-wrapper h2 {
