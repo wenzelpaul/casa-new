@@ -57,4 +57,47 @@
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) close();
   });
+
+  // Touch/Swipe gesture support for mobile
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  const minSwipeDistance = 50; // Minimum distance for a swipe
+  const maxVerticalSwipe = 100; // Maximum vertical movement to consider as horizontal swipe
+
+  function onTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }
+
+  function onTouchEnd(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+
+    // Check if it's a horizontal swipe and not too much vertical movement
+    if (absDeltaX > minSwipeDistance && absDeltaY < maxVerticalSwipe) {
+      if (deltaX > 0) {
+        // Swipe right - go to previous image
+        prev();
+      } else {
+        // Swipe left - go to next image
+        next();
+      }
+    }
+  }
+
+  // Add touch event listeners to the lightbox
+  overlay.addEventListener('touchstart', onTouchStart);
+  overlay.addEventListener('touchend', onTouchEnd);
+
+  // Prevent default touch behavior to avoid conflicts
+  overlay.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+  }, { passive: false });
 })();
