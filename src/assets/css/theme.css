@@ -78,6 +78,50 @@ nav a[href*="contact"]:hover, nav a[href*="impressum"]:hover {
 main {
   background: var(--background-primary);
   min-height: calc(100vh - 200px);
+  padding: 0.5rem;
+}
+
+/* Text content max-width for better readability */
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Content styling */
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  margin-bottom: 1rem;
+}
+
+/* H2 titles get minimal top padding */
+main h2 {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+/* First h2 gets minimal top padding */
+main h2:first-child {
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+}
+
+main p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+main ul,
+main ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+main li {
+  margin-bottom: 0.5rem;
 }
 
 /* Responsive navigation */
@@ -91,6 +135,21 @@ main {
   header h1 {
     font-size: 1.5rem;
     text-align: center;
+  }
+
+  /* Mobile content styling */
+  main {
+    padding: 1rem;
+  }
+
+  main h2 {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  main h2:first-child {
+    margin-top: 0.25rem;
+    padding-top: 0.25rem;
   }
 }
 
