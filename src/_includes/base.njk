@@ -18,10 +18,15 @@
       <a href="/map/">Karte</a>
       <a href="/contact/">Kontakt</a>
       <a href="/impressum/">Impressum</a>
+      <a href="#" id="theme-toggle" class="theme-link" aria-label="Toggle dark mode">
+        <span class="theme-icon"></span>
+      </a>
     </nav>
   </header>
   <main>
-    {{ content | safe }}
+    <div class="content-wrapper">
+      {{ content | safe }}
+    </div>
   </main>
 
   <!-- Lightbox overlay (hidden by default) -->
@@ -36,5 +41,6 @@
   </div>
 
   <script defer src="/assets/js/gallery.js"></script>
+  <script defer src="/assets/js/theme.js"></script>
 </body>
 </html>

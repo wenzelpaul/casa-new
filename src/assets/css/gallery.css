@@ -46,6 +46,11 @@
   z-index: 1000;
   color: #fff;
 }
+
+/* Dark mode lightbox adjustments */
+:root[data-theme="dark"] #lightbox {
+  background: rgba(0,0,0,.95);
+}
 #lightbox[aria-hidden="false"] { display: flex; }
 
 .lb-figure {
