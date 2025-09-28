@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Contact
-description: Contact Casa Orizzonte Blu
+title: Kontakt
+description: Kontakt Casa Orizzonte Blu
 permalink: /contact/index.html
 ---
 ## Kontakt

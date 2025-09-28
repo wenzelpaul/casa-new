@@ -3,6 +3,11 @@
     { "src": "/assets/images/pictures/bild1.jpg", "alt": "Sea view from the terrace", "caption": "Sea view from the terrace" },
     { "src": "/assets/images/pictures/bild2.jpg", "alt": "Living room with daylight", "caption": "Living room with daylight" },
     { "src": "/assets/images/pictures/bild3.jpg", "alt": "Bedroom with balcony", "caption": "Bedroom with balcony" },
-    { "src": "/assets/images/pictures/blick.jpg", "alt": "Kitchen and dining area", "caption": "Kitchen and dining area" }
+    { "src": "/assets/images/pictures/blick.jpg", "alt": "Kitchen and dining area", "caption": "Kitchen and dining area" },
+    { "src": "/assets/images/pictures/haus1.jpg", "alt": "House 1", "caption": "House 1" },
+    { "src": "/assets/images/pictures/haus2.jpg", "alt": "House 2", "caption": "House 2" },
+    { "src": "/assets/images/pictures/haus3.jpg", "alt": "House 3", "caption": "House 3" },
+    { "src": "/assets/images/pictures/blick2.jpg", "alt": "View 2", "caption": "View 2" },
+    { "src": "/assets/images/pictures/meer.jpg", "alt": "Sea", "caption": "Sea" }
   ]
 }

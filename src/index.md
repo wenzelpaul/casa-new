@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Welcome to Casa Orizzonte Blu
-description: A simple Eleventy + Caddy demo site
+title: Willkommen bei Casa Orizzonte Blu
+description: Eine einfache Eleventy + Caddy Demo-Seite
 ---
 ## Beschreibung des Ferienhauses
 

@@ -1,0 +1,110 @@
+---
+layout: base.njk
+title: Karte
+description: Lagekarte für Casa Orizzonte Blu
+permalink: /map/index.html
+---
+<div id="map"></div>
+
+<div class="directions-container">
+    <label for="startLocation">Startort:</label>
+    <input type="text" id="startLocation" value="München" />
+    <button id="getDirections">Route berechnen</button>
+</div>
+
+<div id="routing-instructions"></div>
+
+<style>
+.directions-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+#routing-instructions {
+    margin-top: 20px;
+    width: 100%;
+}
+#routing-instructions .leaflet-routing-container {
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: none;
+}
+.leaflet-routing-container {
+    display: none;
+}
+</style>
+
+<style>
+#map {
+  height: 400px;
+  width: 100%;
+}
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js"></script>
+<script>
+var casaCoords = [43.94749141297074, 8.065030539612058];
+
+var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+
+var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+
+var map = L.map('map', {
+    center: casaCoords,
+    zoom: 13,
+    layers: [osmLayer]
+});
+
+var baseMaps = {
+    "OpenStreetMap": osmLayer,
+    "Satellite": satelliteLayer
+};
+
+L.control.layers(baseMaps).addTo(map);
+
+L.marker(casaCoords).addTo(map)
+    .bindPopup('Casa Orizzonte Blu')
+    .openPopup();
+
+document.getElementById('getDirections').addEventListener('click', function() {
+    var startAddress = document.getElementById('startLocation').value;
+    var geocoder = L.Control.Geocoder.nominatim();
+    geocoder.geocode(startAddress, function(results) {
+        if (results.length > 0) {
+            var startLatLng = results[0].center;
+            var endLatLng = L.latLng(casaCoords[0], casaCoords[1]);
+            if (window.routingControl) {
+                map.removeControl(window.routingControl);
+            }
+            window.routingControl = L.Routing.control({
+                waypoints: [startLatLng, endLatLng],
+                routeWhileDragging: true,
+                language: 'de'
+            }).addTo(map);
+            setTimeout(function() {
+                var routingContainer = map.getContainer().querySelector('.leaflet-routing-container');
+                if (routingContainer) {
+                    document.getElementById('routing-instructions').appendChild(routingContainer);
+                    routingContainer.style.display = 'block';
+                }
+            }, 1000);
+        } else {
+            alert('Startort nicht gefunden. Bitte versuchen Sie eine andere Adresse.');
+        }
+    });
+});
+</script>

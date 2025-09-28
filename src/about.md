@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: About
-description: About Casa Orizzonte Blu
+title: Über
+description: Über Casa Orizzonte Blu
 permalink: /about/index.html
 ---
 ## Beschreibung der Umgebung
