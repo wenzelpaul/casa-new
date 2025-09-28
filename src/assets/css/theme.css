@@ -1,0 +1,101 @@
+/* Target Website Theme - Navigation and Color Scheme */
+
+/* CSS Custom Properties matching target website */
+:root {
+  --primary-blue: #2c5aa0;
+  --primary-blue-dark: #1e3f73;
+  --primary-blue-light: #4a7bc8;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --border-color: #e0e0e0;
+  --hover-background: #f0f4f8;
+}
+
+/* Header and Navigation Styles */
+header {
+  background: var(--background-primary);
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0 0 1rem 0;
+  padding: 0 1rem;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--primary-blue);
+  letter-spacing: -0.5px;
+}
+
+/* Navigation Bar */
+nav {
+  background: var(--background-secondary);
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  margin: 0 0.25rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background: var(--primary-blue);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav a:first-child {
+  margin-left: 1rem;
+  font-weight: 700;
+}
+
+/* Active page styling */
+nav a[href*="about"], nav a[href*="pictures"], nav a[href*="calendar"],
+nav a[href*="map"], nav a[href*="contact"], nav a[href*="impressum"] {
+  position: relative;
+}
+
+nav a[href*="about"]:hover, nav a[href*="pictures"]:hover,
+nav a[href*="calendar"]:hover, nav a[href*="map"]:hover,
+nav a[href*="contact"]:hover, nav a[href*="impressum"]:hover {
+  background: var(--primary-blue-light);
+  color: white;
+}
+
+/* Main content area */
+main {
+  background: var(--background-primary);
+  min-height: calc(100vh - 200px);
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 0.25rem 1rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+/* Focus styles for accessibility */
+nav a:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}

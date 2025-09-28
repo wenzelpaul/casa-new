@@ -1,0 +1,6 @@
+{
+  "eleventy": "3.1.2",
+  "leaflet": "1.9.4",
+  "leaflet-routing-machine": "latest",
+  "leaflet-control-geocoder": "2.4.0"
+}

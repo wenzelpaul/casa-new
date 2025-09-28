@@ -22,26 +22,14 @@
     capEl.textContent = caption;
   }
 
-  async function open(i) {
+  function open(i) {
     show(i);
     overlay.setAttribute('aria-hidden', 'false');
-    try {
-      if (document.fullscreenEnabled) {
-        await overlay.requestFullscreen();
-      }
-    } catch (e) {
-      // Fullscreen not available—overlay still works
-    }
     document.addEventListener('keydown', onKey);
   }
 
-  async function close() {
+  function close() {
     overlay.setAttribute('aria-hidden', 'true');
-    try {
-      if (document.fullscreenElement) {
-        await document.exitFullscreen();
-      }
-    } catch (e) {}
     document.removeEventListener('keydown', onKey);
   }
 

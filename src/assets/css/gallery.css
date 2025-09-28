@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
+  padding-top: 1rem;
 }
 .thumb {
   display: block;
@@ -20,7 +21,10 @@
 /* Lightbox overlay */
 #lightbox {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,.9);
   display: none;
   align-items: center;

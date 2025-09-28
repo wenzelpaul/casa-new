@@ -27,6 +27,7 @@ permalink: /map/index.html
 #map {
   height: 60vh;
   width: 100%;
+  margin-top: 1rem;
 }
 #routing-instructions {
     margin-top: 20px;
@@ -48,12 +49,12 @@ main {
 }
 </style>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-<script src="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@{{ versions.leaflet }}/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@{{ versions['leaflet-routing-machine'] }}/dist/leaflet-routing-machine.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@{{ versions['leaflet-control-geocoder'] }}/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet@{{ versions.leaflet }}/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@{{ versions['leaflet-routing-machine'] }}/dist/leaflet-routing-machine.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder@{{ versions['leaflet-control-geocoder'] }}/dist/Control.Geocoder.js"></script>
 <script>
 var casaCoords = [43.94749141297074, 8.065030539612058];
 
@@ -79,7 +80,7 @@ var baseMaps = {
 L.control.layers(baseMaps).addTo(map);
 
 L.marker(casaCoords).addTo(map)
-    .bindPopup('Casa Orizzonte Blu')
+    .bindPopup('Ferienhaus')
     .openPopup();
 
 document.getElementById('getDirections').addEventListener('click', function() {
