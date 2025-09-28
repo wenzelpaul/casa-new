@@ -4,6 +4,9 @@ title: Contact
 description: Contact Casa Orizzonte Blu
 permalink: /contact/index.html
 ---
-## Contact
+## Kontakt
 
-For availability and questions, please reach out via email or phone as preferred.
+Herbert Pleyer
+Margrit Hohenberger
+
+Senden Sie uns einfach eine E-Mail an Margrit.Hohenberger@buchet8.de

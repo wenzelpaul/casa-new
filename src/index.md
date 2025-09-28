@@ -3,6 +3,8 @@ layout: base.njk
 title: Welcome to Casa Orizzonte Blu
 description: A simple Eleventy + Caddy demo site
 ---
-## Benvenuti
+## Beschreibung des Ferienhauses
 
-A lightweight, static website built with Eleventy and served by Caddy for quick local testing and production‑ready hosting.
+Das Casa Orizzonte blu liegt inmitten von Olivenhainen mit herrlichem Blick auf das 3,5 km (Luftlinie) entfernte Meer und die umgebenden Hügel.
+Ein Ort für Menschen, die Ruhe und Natur lieben; trotzdem ist man in wenigen Minuten an der lebendigen Küste, in weniger als einer Stunde in San Remo oder Monaco.
+Zufahrtstraße (2,3km) asphaltiert.
