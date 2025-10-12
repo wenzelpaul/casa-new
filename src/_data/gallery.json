@@ -1,13 +1,98 @@
-{
-  "pictures": [
-    { "src": "/assets/images/pictures/bild1.jpg", "alt": "Sea view from the terrace", "caption": "Sea view from the terrace" },
-    { "src": "/assets/images/pictures/bild2.jpg", "alt": "Living room with daylight", "caption": "Living room with daylight" },
-    { "src": "/assets/images/pictures/bild3.jpg", "alt": "Bedroom with balcony", "caption": "Bedroom with balcony" },
-    { "src": "/assets/images/pictures/blick.jpg", "alt": "Kitchen and dining area", "caption": "Kitchen and dining area" },
-    { "src": "/assets/images/pictures/haus1.jpg", "alt": "House 1", "caption": "House 1" },
-    { "src": "/assets/images/pictures/haus2.jpg", "alt": "House 2", "caption": "House 2" },
-    { "src": "/assets/images/pictures/haus3.jpg", "alt": "House 3", "caption": "House 3" },
-    { "src": "/assets/images/pictures/blick2.jpg", "alt": "View 2", "caption": "View 2" },
-    { "src": "/assets/images/pictures/meer.jpg", "alt": "Sea", "caption": "Sea" }
-  ]
-}
+[
+  {
+    "id": "0c16a9f6-53b7-46d2-8382-93317e1ca1f4",
+    "thumbnail": "/assets/images/gallery/0c16a9f6-53b7-46d2-8382-93317e1ca1f4_thumb.jpg",
+    "large": "/assets/images/gallery/0c16a9f6-53b7-46d2-8382-93317e1ca1f4_large.jpg",
+    "originalFileName": "IMG_20240910_190208.jpg",
+    "fileCreatedAt": "2024-09-10T19:02:10.93+00:00",
+    "description": ""
+  },
+  {
+    "id": "35f4e1d0-e237-4c9e-9593-0f135d1e9daf",
+    "thumbnail": "/assets/images/gallery/35f4e1d0-e237-4c9e-9593-0f135d1e9daf_thumb.jpg",
+    "large": "/assets/images/gallery/35f4e1d0-e237-4c9e-9593-0f135d1e9daf_large.jpg",
+    "originalFileName": "IMG_20240910_190057.jpg",
+    "fileCreatedAt": "2024-09-10T19:00:59.199+00:00",
+    "description": ""
+  },
+  {
+    "id": "1d279ba7-5130-4961-9dbc-4a7d990b2ade",
+    "thumbnail": "/assets/images/gallery/1d279ba7-5130-4961-9dbc-4a7d990b2ade_thumb.jpg",
+    "large": "/assets/images/gallery/1d279ba7-5130-4961-9dbc-4a7d990b2ade_large.jpg",
+    "originalFileName": "IMG_20240910_190048.jpg",
+    "fileCreatedAt": "2024-09-10T19:00:50.971+00:00",
+    "description": ""
+  },
+  {
+    "id": "1b218582-e7ba-4c4c-bc90-38493bd09463",
+    "thumbnail": "/assets/images/gallery/1b218582-e7ba-4c4c-bc90-38493bd09463_thumb.jpg",
+    "large": "/assets/images/gallery/1b218582-e7ba-4c4c-bc90-38493bd09463_large.jpg",
+    "originalFileName": "IMG_20240910_190042.jpg",
+    "fileCreatedAt": "2024-09-10T19:00:44.571+00:00",
+    "description": ""
+  },
+  {
+    "id": "fa1973f8-d47f-47fe-8bab-0d4be4a636ab",
+    "thumbnail": "/assets/images/gallery/fa1973f8-d47f-47fe-8bab-0d4be4a636ab_thumb.jpg",
+    "large": "/assets/images/gallery/fa1973f8-d47f-47fe-8bab-0d4be4a636ab_large.jpg",
+    "originalFileName": "PXL_20240910_185539883.jpg",
+    "fileCreatedAt": "2024-09-10T18:55:39.883+00:00",
+    "description": ""
+  },
+  {
+    "id": "84624658-8425-4ea4-bdd8-b684adcb7369",
+    "thumbnail": "/assets/images/gallery/84624658-8425-4ea4-bdd8-b684adcb7369_thumb.jpg",
+    "large": "/assets/images/gallery/84624658-8425-4ea4-bdd8-b684adcb7369_large.jpg",
+    "originalFileName": "IMG_20240910_184516.jpg",
+    "fileCreatedAt": "2024-09-10T18:45:17.966+00:00",
+    "description": ""
+  },
+  {
+    "id": "d24612e2-463a-4df8-b210-d2c7a3941c19",
+    "thumbnail": "/assets/images/gallery/d24612e2-463a-4df8-b210-d2c7a3941c19_thumb.jpg",
+    "large": "/assets/images/gallery/d24612e2-463a-4df8-b210-d2c7a3941c19_large.jpg",
+    "originalFileName": "IMG_20240910_184422.jpg",
+    "fileCreatedAt": "2024-09-10T18:44:23.81+00:00",
+    "description": ""
+  },
+  {
+    "id": "d7f2f450-9f97-4685-b5db-7bdada40e0b1",
+    "thumbnail": "/assets/images/gallery/d7f2f450-9f97-4685-b5db-7bdada40e0b1_thumb.jpg",
+    "large": "/assets/images/gallery/d7f2f450-9f97-4685-b5db-7bdada40e0b1_large.jpg",
+    "originalFileName": "IMG_20240910_184414.jpg",
+    "fileCreatedAt": "2024-09-10T18:44:16.421+00:00",
+    "description": ""
+  },
+  {
+    "id": "99693602-ded9-43ae-a6ce-c21b1b15a3df",
+    "thumbnail": "/assets/images/gallery/99693602-ded9-43ae-a6ce-c21b1b15a3df_thumb.jpg",
+    "large": "/assets/images/gallery/99693602-ded9-43ae-a6ce-c21b1b15a3df_large.jpg",
+    "originalFileName": "IMG_20240910_151630.jpg",
+    "fileCreatedAt": "2024-09-10T15:16:33.137+00:00",
+    "description": ""
+  },
+  {
+    "id": "edc5dd6a-b1d4-415e-a14a-c3898bf00869",
+    "thumbnail": "/assets/images/gallery/edc5dd6a-b1d4-415e-a14a-c3898bf00869_thumb.jpg",
+    "large": "/assets/images/gallery/edc5dd6a-b1d4-415e-a14a-c3898bf00869_large.jpg",
+    "originalFileName": "PXL_20240910_145728556.jpg",
+    "fileCreatedAt": "2024-09-10T14:57:28.556+00:00",
+    "description": ""
+  },
+  {
+    "id": "eebd06e9-0fb7-41e6-a49e-61f1bd16579d",
+    "thumbnail": "/assets/images/gallery/eebd06e9-0fb7-41e6-a49e-61f1bd16579d_thumb.jpg",
+    "large": "/assets/images/gallery/eebd06e9-0fb7-41e6-a49e-61f1bd16579d_large.jpg",
+    "originalFileName": "PXL_20240910_143725854.jpg",
+    "fileCreatedAt": "2024-09-10T14:37:25.854+00:00",
+    "description": ""
+  },
+  {
+    "id": "681e8e47-83d0-4e8d-84b0-78c1b3c2fd91",
+    "thumbnail": "/assets/images/gallery/681e8e47-83d0-4e8d-84b0-78c1b3c2fd91_thumb.jpg",
+    "large": "/assets/images/gallery/681e8e47-83d0-4e8d-84b0-78c1b3c2fd91_large.jpg",
+    "originalFileName": "IMG_20240910_134116.jpg",
+    "fileCreatedAt": "2024-09-10T13:41:17.618+00:00",
+    "description": "Grenze"
+  }
+]

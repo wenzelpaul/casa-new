@@ -5,9 +5,9 @@ description: Fotogalerie
 permalink: /pictures/index.html
 ---
 <div class="gallery" data-gallery>
-  {% for item in gallery.pictures %}
-    <a href="{{ item.src }}" class="thumb" data-index="{{ loop.index0 }}" data-caption="{{ item.caption | escape }}">
-      <img src="{{ item.src }}" alt="{{ item.alt }}">
+  {% for item in gallery %}
+    <a href="{{ item.large }}" class="thumb" data-index="{{ loop.index0 }}" data-caption="{{ item.description | escape }}">
+      <img src="{{ item.thumbnail }}" alt="{{ item.description }}">
     </a>
   {% endfor %}
 </div>

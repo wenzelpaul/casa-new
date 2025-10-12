@@ -4,9 +4,15 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve --port=8080",
-    "build": "eleventy"
+    "fetch-gallery": "node --env-file=.env scripts/fetch-immich-gallery.js",
+    "prebuild": "npm run fetch-gallery",
+    "build": "eleventy",
+    "build:prod": "npm run fetch-gallery && eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }
