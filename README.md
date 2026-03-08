@@ -1,6 +1,6 @@
 # Casa Orizzonte Blu
 
-A vacation rental website built with Eleventy and Caddy, featuring automatic image fetching from Immich and automated deployment via SFTP.
+A vacation rental website built with Eleventy, featuring automatic image fetching from Immich and automated deployment via Vercel.
 
 ## Features
 
@@ -8,12 +8,12 @@ A vacation rental website built with Eleventy and Caddy, featuring automatic ima
 - **Dynamic Gallery**: Automatically fetches images from an Immich photo server
 - **Interactive Map**: Shows the property location using Leaflet
 - **Responsive Design**: Works perfectly on mobile and desktop
-- **Automated Deployment**: Deploy to production server with a single command
+- **Automated Deployment**: CI/CD natively handled via Vercel
 
 ## Tech Stack
 
 - **Eleventy** (v3.1.2) - Static site generator
-- **Caddy** - Web server with automatic HTTPS
+- **Vercel** - Global CDN and automated deployments
 - **Leaflet** (v1.9.4) - Interactive maps
 - **Immich** - Self-hosted photo management
 - **NPM Scripts** - Task automation
@@ -37,12 +37,7 @@ A vacation rental website built with Eleventy and Caddy, featuring automatic ima
 │   ├── map.njk                  # Interactive map
 │   ├── calendar.njk             # Booking calendar
 │   └── pictures.njk             # Photo gallery
-├── scripts/
-│   ├── fetch-immich-gallery.js  # Downloads images from Immich
-│   └── upload-to-server.js      # Deploys to SFTP server
-├── .env                         # Environment variables
 ├── .eleventy.js                 # Eleventy configuration
-├── Caddyfile                    # Caddy configuration
 └── package.json                 # Dependencies and scripts
 ```
 
@@ -92,14 +87,9 @@ npm run build:prod
 ```
 
 ### Deploy to Production
-Upload the current `_site` contents to your SFTP server:
-```bash
-npm run upload
-```
-
-This command will:
-1. Delete all existing files in the remote directory
-2. Upload all files from `_site/` to the server
+Vercel handles deployments automatically on git push.
+1. Commit changes and push to `main` branch.
+2. Vercel automatically builds and deploys.
 
 ## Gallery Management
 
@@ -121,16 +111,10 @@ Gallery data is stored in `src/_data/gallery.json` and automatically included in
 - Processes Markdown files
 - Outputs to `_site/` directory
 
-### Caddy
-- Configuration in `Caddyfile`
-- Automatic HTTPS certificates
-- Reverse proxy setup
-- Static file serving
-
 ### Environment Variables
 - `.env` file (not committed to git)
 - Contains sensitive credentials
-- Used by both gallery fetching and deployment scripts
+- Ensure `IMMICH_*` variables are set in your Vercel project settings.
 
 ## Available Scripts
 
@@ -140,25 +124,22 @@ Gallery data is stored in `src/_data/gallery.json` and automatically included in
 | `npm run build` | Build static site |
 | `npm run build:prod` | Build with fresh gallery images |
 | `npm run fetch-gallery` | Download latest images from Immich |
-| `npm run upload` | Upload current build to production server |
 
 ## Deployment Details
 
-The deployment script (`scripts/upload-to-server.js`):
-- Connects to SFTP server using credentials from `.env`
-- Deletes all files in the remote directory
-- Recursively uploads all files from `_site/`
-- Handles both files and directories
-- Provides detailed logging
+Deployments are handled automatically by Vercel when you push to the Git repository.
 
-**Important**: The remote directory (`/casa-orizzonteblu`) gets completely emptied before each deployment.
+1.  Connect your repository to Vercel.
+2.  Set the Framework Preset to "Other" or "Eleventy".
+3.  Set the Build Command to `npm run build:prod`.
+4.  Set the Output Directory to `_site`.
+5.  Add the three `IMMICH_*` environment variables in the settings.
 
 ## Contributing
 
 1. Make changes
 2. Test locally with `npm run dev`
-3. Build with `npm run build:prod`
-4. Upload with `npm run upload`
+3. Commit and push to deploy.
 
 ## License
 
