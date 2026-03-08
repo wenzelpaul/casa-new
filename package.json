@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve --port=8080",
-    "fetch-gallery": "node --env-file=.env scripts/fetch-immich-gallery.js",
+    "fetch-gallery": "node scripts/fetch-immich-gallery.js",
     "prebuild": "npm run fetch-gallery",
     "build": "eleventy",
     "build:prod": "npm run fetch-gallery && eleventy"
