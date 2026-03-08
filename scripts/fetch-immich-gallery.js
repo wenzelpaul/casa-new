@@ -45,7 +45,7 @@ async function makeImmichRequest(endpoint) {
   return new Promise((resolve, reject) => {
     const url = `${IMMICH_URL}/api${endpoint}`;
     const protocol = url.startsWith('https') ? https : http;
-    
+
     const options = {
       headers: {
         'x-api-key': IMMICH_API_KEY,
@@ -55,11 +55,11 @@ async function makeImmichRequest(endpoint) {
 
     protocol.get(url, options, (res) => {
       let data = '';
-      
+
       res.on('data', (chunk) => {
         data += chunk;
       });
-      
+
       res.on('end', () => {
         if (res.statusCode === 200) {
           try {
@@ -82,7 +82,7 @@ async function downloadImage(assetId, outputPath, size = 'preview') {
   return new Promise((resolve, reject) => {
     const url = `${IMMICH_URL}/api/assets/${assetId}/thumbnail?size=${size}`;
     const protocol = url.startsWith('https') ? https : http;
-    
+
     const options = {
       headers: {
         'x-api-key': IMMICH_API_KEY
@@ -122,23 +122,37 @@ async function getAssetInfo(assetId) {
  */
 async function fetchGallery() {
   console.log('Fetching album from Immich...');
-  
+
   try {
     // Fetch album data
     const album = await makeImmichRequest(`/albums/${ALBUM_ID}`);
-    
+
     if (!album.assets || album.assets.length === 0) {
       console.log('No assets found in album');
       return;
     }
-    
-    console.log(`Found ${album.assets.length} assets in album "${album.albumName}"`);
-    
+
+    console.log(`Found ${album.assets.length} total assets in album "${album.albumName}"`);
+
+    // Randomly select up to 30 assets
+    const MAX_ASSETS = 30;
+    let selectedAssets = album.assets;
+
+    if (album.assets.length > MAX_ASSETS) {
+      // Create a copy of the array and shuffle it
+      const shuffled = [...album.assets].sort(() => 0.5 - Math.random());
+      // Take the first MAX_ASSETS elements
+      selectedAssets = shuffled.slice(0, MAX_ASSETS);
+      console.log(`Randomly selected ${MAX_ASSETS} assets to fetch.`);
+    } else {
+      console.log(`Fetching all ${album.assets.length} assets.`);
+    }
+
     // Create output directory if it doesn't exist
     if (!fs.existsSync(OUTPUT_DIR)) {
       fs.mkdirSync(OUTPUT_DIR, { recursive: true });
     }
-    
+
     // Clear old images
     const existingFiles = fs.readdirSync(OUTPUT_DIR);
     existingFiles.forEach(file => {
@@ -147,34 +161,34 @@ async function fetchGallery() {
       }
     });
     console.log('Cleared old images from output directory');
-    
+
     // Process each asset
     const galleryData = [];
-    
-    for (let i = 0; i < album.assets.length; i++) {
-      const asset = album.assets[i];
+
+    for (let i = 0; i < selectedAssets.length; i++) {
+      const asset = selectedAssets[i];
       const assetId = asset.id;
-      
-      console.log(`Processing asset ${i + 1}/${album.assets.length}: ${assetId}`);
-      
+
+      console.log(`Processing asset ${i + 1}/${selectedAssets.length}: ${assetId}`);
+
       // Get detailed asset information to retrieve description
       const assetInfo = await getAssetInfo(assetId);
       const description = assetInfo?.exifInfo?.description || '';
-      
+
       if (description) {
         console.log(`  Found description: "${description}"`);
       }
-      
+
       // Download thumbnail (for gallery view)
       const thumbFilename = `${assetId}_thumb.jpg`;
       const thumbPath = path.join(OUTPUT_DIR, thumbFilename);
       await downloadImage(assetId, thumbPath, 'thumbnail');
-      
+
       // Download larger version (for lightbox)
       const largeFilename = `${assetId}_large.jpg`;
       const largePath = path.join(OUTPUT_DIR, largeFilename);
       await downloadImage(assetId, largePath, 'preview'); // preview is ~1080p
-      
+
       // Add to gallery data
       galleryData.push({
         id: assetId,
@@ -184,26 +198,26 @@ async function fetchGallery() {
         fileCreatedAt: asset.fileCreatedAt || asset.createdAt,
         description: description // Add description field
       });
-      
+
       console.log(`  ✓ Downloaded thumbnail and large version`);
     }
-    
+
     // Sort by date (newest first)
     galleryData.sort((a, b) => new Date(b.fileCreatedAt) - new Date(a.fileCreatedAt));
-    
+
     // Write gallery.json
     fs.writeFileSync(
       GALLERY_JSON_PATH,
       JSON.stringify(galleryData, null, 2)
     );
-    
+
     console.log(`\n✓ Successfully created gallery.json with ${galleryData.length} images`);
     console.log(`✓ Images saved to: ${OUTPUT_DIR}`);
-    
+
     // Count images with descriptions
     const withDescriptions = galleryData.filter(img => img.description).length;
     console.log(`✓ ${withDescriptions} images have descriptions`);
-    
+
   } catch (error) {
     console.error('Error fetching gallery:', error.message);
     process.exit(1);
