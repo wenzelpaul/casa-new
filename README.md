@@ -37,6 +37,9 @@ A vacation rental website built with Eleventy, featuring automatic image fetchin
 │   ├── map.njk                  # Interactive map
 │   ├── calendar.njk             # Booking calendar
 │   └── pictures.njk             # Photo gallery
+├── scripts/
+│   └── fetch-immich-gallery.js  # Downloads images from Immich
+├── .env                         # Environment variables
 ├── .eleventy.js                 # Eleventy configuration
 └── package.json                 # Dependencies and scripts
 ```
