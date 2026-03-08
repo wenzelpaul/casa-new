@@ -153,14 +153,8 @@ async function fetchGallery() {
       fs.mkdirSync(OUTPUT_DIR, { recursive: true });
     }
 
-    // Clear old images
-    const existingFiles = fs.readdirSync(OUTPUT_DIR);
-    existingFiles.forEach(file => {
-      if (file.endsWith('.jpg') || file.endsWith('.jpeg') || file.endsWith('.png')) {
-        fs.unlinkSync(path.join(OUTPUT_DIR, file));
-      }
-    });
-    console.log('Cleared old images from output directory');
+    // We no longer clear all old images here.
+    // Instead, we cleanup stale images at the end of the script.
 
     // Process each asset
     const galleryData = [];
@@ -179,15 +173,23 @@ async function fetchGallery() {
         console.log(`  Found description: "${description}"`);
       }
 
-      // Download thumbnail (for gallery view)
+      // Check cache before downloading
       const thumbFilename = `${assetId}_thumb.jpg`;
       const thumbPath = path.join(OUTPUT_DIR, thumbFilename);
-      await downloadImage(assetId, thumbPath, 'thumbnail');
-
-      // Download larger version (for lightbox)
       const largeFilename = `${assetId}_large.jpg`;
       const largePath = path.join(OUTPUT_DIR, largeFilename);
-      await downloadImage(assetId, largePath, 'preview'); // preview is ~1080p
+
+      if (fs.existsSync(thumbPath) && fs.existsSync(largePath)) {
+        console.log(`  ✓ Loaded from cache`);
+      } else {
+        // Download thumbnail (for gallery view)
+        await downloadImage(assetId, thumbPath, 'thumbnail');
+
+        // Download larger version (for lightbox)
+        await downloadImage(assetId, largePath, 'preview'); // preview is ~1080p
+
+        console.log(`  ✓ Downloaded new images`);
+      }
 
       // Add to gallery data
       galleryData.push({
@@ -199,7 +201,28 @@ async function fetchGallery() {
         description: description // Add description field
       });
 
-      console.log(`  ✓ Downloaded thumbnail and large version`);
+      console.log(`  Finished processing ${assetId}`);
+    }
+
+    // Cleanup stale images not in the current selection
+    const currentAssetIds = selectedAssets.map(a => a.id);
+    const existingCache = fs.readdirSync(OUTPUT_DIR);
+    let deletedCount = 0;
+
+    existingCache.forEach(file => {
+      if (file.endsWith('.jpg') || file.endsWith('.jpeg') || file.endsWith('.png')) {
+        // Extract the original assetId from the filename (e.g., "ID_thumb.jpg")
+        const fileBase = file.split('_')[0];
+
+        if (!currentAssetIds.includes(fileBase)) {
+          fs.unlinkSync(path.join(OUTPUT_DIR, file));
+          deletedCount++;
+        }
+      }
+    });
+
+    if (deletedCount > 0) {
+      console.log(`\n✓ Cleaned up ${deletedCount} stale images from cache`);
     }
 
     // Sort by date (newest first)
