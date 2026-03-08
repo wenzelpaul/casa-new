@@ -8,8 +8,9 @@ This document outlines the rules, tech stack, and best practices for any AI agen
 - **Templating Engine**: Nunjucks (`.njk`) for base layouts and components. Page content is written in Markdown (`.md`).
 - **Frontend Stack**: Vanilla HTML, plain CSS (No Tailwind or other frameworks), and Vanilla JS.
 - **Map Integration**: Leaflet (v1.9.x) for interactive maps.
-- **Dynamic Content**: Photos are fetched at build-time from a self-hosted Immich instance using an API script.
-- **Server**: Caddy (for production hosting / reverse proxy).
+- **Photos**: Fetched at build-time from a self-hosted Immich instance using an API script.
+- **Hosting & CI/CD**: Vercel (Production/Preview deployments).
+- **Environment Management**: Environment variables configured in Vercel for production and managed locally via `.env`.
 
 ## 2. Directory Structure
 
@@ -18,7 +19,7 @@ This document outlines the rules, tech stack, and best practices for any AI agen
   - `_data/`: Global data files, including auto-generated content like `gallery.json`.
   - `assets/`: Static assets (`css/`, `js/`, `images/`) that are copied over to `_site/` during build.
   - Page specific files (e.g., `index.md`, `about.md`, `map.njk`).
-- `scripts/`: Custom Node.js scripts for fetching data (`fetch-immich-gallery.js`) and deployment (`upload-to-server.js`).
+- `scripts/`: Custom Node.js scripts for fetching data (`fetch-immich-gallery.js`). Deployment is handled automatically by Vercel.
 - `_site/`: The generated static site output directory (ignored in git).
 
 ## 3. Development Workflow & Scripts
@@ -26,7 +27,7 @@ This document outlines the rules, tech stack, and best practices for any AI agen
 - **Development Server**: Run `npm run dev` to start Eleventy with live reload (defaults to `http://localhost:8080`).
 - **Fetching Gallery Details**: Run `npm run fetch-gallery` to fetch the latest photos from the Immich API into `src/_data/gallery.json`.
 - **Production Build**: Run `npm run build:prod` which automatically runs the fetch step before building.
-- **Environment Variables**: The project requires a `.env` file (which is git-ignored) for storing API keys (`IMMICH_URL`, `IMMICH_API_KEY`, etc.) and deployment credentials (`SFTP_HOST`, etc.). Never hardcode secrets.
+- **Environment Variables**: The project requires a `.env` file (git-ignored) for storing API keys (`IMMICH_URL`, `IMMICH_API_KEY`, etc.). These same variables must be configured in the Vercel project settings. Never commit secrets.
 
 ## 4. Coding Guidelines
 
@@ -42,9 +43,10 @@ This document outlines the rules, tech stack, and best practices for any AI agen
 
 ## 5. Deployment Procedures
 
-- Deployment is handled via a custom SFTP script: `npm run upload`.
-- **Crucial Rule**: The upload script deletes all existing files in the remote web root before pushing the new output. Always double check build outputs before triggering a deploy or modifying the `upload-to-server.js` script.
-- Ensure all static assets are appropriately bundled and reachable relative to the root (`/assets/css/theme.css`).
+- **CI/CD**: Deployment is fully automated via Vercel's integration with the GitHub repository.
+- **Triggers**: Every push to the `main` branch triggers a Production deployment. Pushes to other branches trigger Preview deployments.
+- **Build Commands**: Vercel is configured to run `npm run build:prod` which handles asset fetching and site generation.
+- **Asset Paths**: Ensure all static assets are linked using relative paths or root-relative paths (`/assets/...`) to work correctly in Vercel's preview and production environments.
 
 ## 6. General Agent Rules
 
