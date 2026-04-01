@@ -17,8 +17,8 @@ Ausflugsmöglichkeiten ins Hinterland (auch zu Fuß) sind ebenso reizvoll wie Fa
 1. Autobahn A 10 von Genua kommend Richtung Ventimiglia: Ausfahrt San Bartolomeo al Mare
 2. Von der Autobahnausfahrt runter auf die Küstenstraße in San Bartolomeo al Mare.
 3. An der Ampel-Kreuzung zur SS1 Aurelia rechts abbiegen Richtung West nach Diano Marina.
-4. Nach 1,4 km kommt links eine Esso-Tankstelle und rechts ein rotes Haus. Dort scharf rechts abbiegen, über den Bahnübergang drüber und sofort hinter dem Bahnübergang links abbiegen an der Bahnlinie entlang Richtung Diano Marina.
-5. Nach 700m, wo links eine niedrige Bahnunterführung ist knickt die Straße im rechten Winkel ins Hinterland am Flussbett entlang nach Diano San Pietro.
+4. Nach 1,4 km kommt links eine Esso-Tankstelle und rechts ein rotes Haus. Dort scharf rechts abbiegen, über den Radweg drüber und sofort hinter dem Radweg links abbiegen entlang Richtung Diano Marina.
+5. Nach 700 m nach rechts abbiegen ins Hinterland am Flussbett entlang nach Diano San Pietro.
 6. Man fährt unter der Autobahn durch und unter der neu gebauten Eisenbahntrasse und erreicht nach 2,5 km die Ortsmitte von Diano San Pietro
 7. Einfach geradeaus weiter – jetzt auf den Tachostand achten – und nach 1,4 km ist links am Straßenrand eine kleine Kapelle mit Spiegel, gegenüber geht es steil hoch nach Moltedo (am Berg, Ferienhaussiedlung und Kirche). Nach 250m. bei den Mülltonnen links und nach 150m Einfahrt in die Olivenhaine.
 8. Dieser schmalen, aber geteerten, Straße folgen. Sie geht den Berg hoch , oben am Kamm links entlang bis nach 1,6km eine Kreuzung (nach rotweißen Wasserbetonbecken) mit Wasserhähnen (Beschriftung Marin d` Ca) kommt. Dort rechts abbiegen und nach 550m liegt rechts unser gelbes Haus. Parkmöglichkeiten direkt am Grundstück vorhanden.
