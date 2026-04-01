@@ -14,10 +14,10 @@ permalink: /impressum/index.html
 Herbert Pleyer  
 Margrit Hohenberger  
 
-[Adresse: Bitte hier die vollständige Adresse einfügen]  
+Görresstraße 13a 85435 Erding 
 
 **Kontakt:**  
-E-Mail: Margrit.Hohenberger@buchet8.de  
+E-Mail: pleyer.wohnungen@gmail.com
 
 ### Haftungsausschluss
 
