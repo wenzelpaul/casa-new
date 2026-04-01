@@ -58,12 +58,6 @@ A vacation rental website built with Eleventy, featuring automatic image fetchin
    IMMICH_URL=https://your-immich-server.com
    IMMICH_API_KEY=your-api-key-here
    IMMICH_ALBUM_ID=your-album-id-here
-
-   # SFTP deployment configuration
-   SFTP_HOST=ssh.strato.de
-   SFTP_USER=your-username
-   SFTP_PASS=your-password
-   SFTP_REMOTE_DIR=/casa-orizzonteblu
    ```
 
 3. **Fetch gallery images:**
