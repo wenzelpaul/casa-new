@@ -27,7 +27,7 @@ Ausflugsmöglichkeiten ins Hinterland (auch zu Fuß) sind ebenso reizvoll wie Fa
 
 ## Das Ferienhaus
 
-**Personen:** max. 6
+**Personen:** max. 8
 
 **Räumlichkeiten:**
 - 3 Schlafzimmer
@@ -71,9 +71,9 @@ Ausflugsmöglichkeiten ins Hinterland (auch zu Fuß) sind ebenso reizvoll wie Fa
 
 ## Preise je Woche (bis zu 5 Personen)
 
-- **Hauptsaison (Juli + August):** € 1000,-- / Woche (€ 150,-- / Tag)
-- **Zwischensaison (Mai + Juni + September + Oktober):** € 800,-- / Woche (€ 120,-- / Tag)
-- **Nebensaison (Übrige Zeit):** € 600,-- / Woche (€ 90,-- / Tag)
+- **Hauptsaison (Juli + August):** € 1200,-- / Woche (€ 180,-- / Tag)
+- **Zwischensaison (Mai + Juni + September + Oktober):** € 1.000,-- / Woche (€ 150,-- / Tag)
+- **Nebensaison (Übrige Zeit):** € 800,-- / Woche (€ 120,-- / Tag)
 
 **Hinweise:**
 - Jede weitere Person: € 5,-- / Tag
