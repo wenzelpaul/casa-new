@@ -8,5 +8,6 @@ permalink: /contact/index.html
 
 Herbert Pleyer
 Margrit Hohenberger
++49 172 96 99 837
 
-Senden Sie uns einfach eine E-Mail an Margrit.Hohenberger@buchet8.de
+Senden Sie uns einfach eine E-Mail an pleyer.wohnungen@gmail.com
